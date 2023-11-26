@@ -1,8 +1,9 @@
 <?php
-
+    session_start();
     if($_POST) {
         if(($_POST['usuario']=="develoteca") &&($_POST['password']="12345")) {
-
+            
+            $_SESSION['usuario']="develoteca";
             header("location: index.php");
         }
         else {
