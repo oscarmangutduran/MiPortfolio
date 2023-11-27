@@ -1,4 +1,11 @@
 <?php include("cabecera.php"); ?>
+<?php include("conexion.php"); ?>
+
+<?php 
+    $objConexion=new conexion();
+    $sql="INSERT INTO proyectos (id, nombre, imagen, descripcion) VALUES (NULL, 'proyecto 1', 'imagen.jpg', 'es un proyecto de hace mucho tiempo');";
+    $objConexion->ejecutar($sql);
+?>
     <br/>
 
     <div class="container">
