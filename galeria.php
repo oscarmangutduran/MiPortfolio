@@ -2,9 +2,17 @@
 <?php include("conexion.php"); ?>
 
 <?php 
+
+    if($_POST){
+
+        print_r($_POST);
+
+        $nombre=$_POST['nombre'];
+
     $objConexion=new conexion();
-    $sql="INSERT INTO proyectos (id, nombre, imagen, descripcion) VALUES (NULL, 'proyecto 1', 'imagen.jpg', 'es un proyecto de hace mucho tiempo');";
-    $objConexion->ejecutar($sql);
+    $sql="INSERT INTO proyectos (id, nombre, imagen, descripcion) VALUES (NULL, '$nombre', 'imagen.jpg', 'es un proyecto de hace mucho tiempo');";
+    $objConexion->ejecutar($sql);   
+    }
 ?>
     <br/>
 
@@ -17,7 +25,7 @@
             Datos del proyecto:
         </div>
         <div class="card-body">
-        <form action="galeria.php" method="post">
+        <form action="galeria.php" method="post" enctype="multipart/form-data">
 
             Nombre del proyecto: <input class="form-control" type="text" name="nombre" id="">
             <br/>
