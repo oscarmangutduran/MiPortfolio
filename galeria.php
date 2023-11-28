@@ -15,9 +15,9 @@
     }
 
     $objConexion=new conexion();
-    $resultado=$objConexion->consultar("SELECT * FROM PROYECTOS");
+    $proyectos=$objConexion->consultar("SELECT * FROM PROYECTOS");
 
-    PRINT_R($resultado);
+    //print_r($resultado);
 
 ?>
     <br/>
@@ -54,14 +54,26 @@
             <th>ID</th>
             <th >Nombre</th>
             <th >Imagen</th>
+            <th >Descripción</th>
+            <th >Acciones</th>
+
+
+
         </tr>
     </thead>
     <tbody>
+        <?php foreach($proyectos as $proyecto) { ?>
         <tr>
-            <td >3</td>
-            <td>Aplicación web </td>
-            <td>imagen.jpg</td>
+            <td ><?php echo $proyecto['id']  ?></td>
+            <td><?php echo $proyecto['nombre']  ?> </td>
+            <td><?php echo $proyecto['imagen']  ?></td>
+            <td><?php echo $proyecto['descripcion']  ?></td>
+            <td><a type="button" class="btn btn-danger" href="#" ">Eliminar</a></td>
+
+
+
         </tr>
+        <?php } ?>
     </tbody>
 </table>
             
