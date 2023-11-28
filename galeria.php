@@ -8,14 +8,24 @@
         print_r($_POST);
 
         $nombre=$_POST['nombre'];
+        $objConexion=new conexion();
+        $sql="INSERT INTO proyectos (id, nombre, imagen, descripcion) VALUES (NULL, '$nombre', 'imagen.jpg', 'es un proyecto de hace mucho tiempo');";
+        $objConexion->ejecutar($sql);   
+    }
 
-    $objConexion=new conexion();
-    $sql="INSERT INTO proyectos (id, nombre, imagen, descripcion) VALUES (NULL, '$nombre', 'imagen.jpg', 'es un proyecto de hace mucho tiempo');";
-    $objConexion->ejecutar($sql);   
+    if($_GET) {
+
+        //"DELETE FROM proyectos WHERE `proyectos`.`id` = 7";
+
+        $id=$_GET['borrar'];
+        $objConexion=new conexion();
+        $sql="DELETE FROM PROYECTOS WHERE PROYECTOS.ID =".$id;
+        $objConexion->ejecutar($sql);
     }
 
     $objConexion=new conexion();
     $proyectos=$objConexion->consultar("SELECT * FROM PROYECTOS");
+
 
     //print_r($resultado);
 
@@ -64,11 +74,11 @@
     <tbody>
         <?php foreach($proyectos as $proyecto) { ?>
         <tr>
-            <td ><?php echo $proyecto['id']  ?></td>
-            <td><?php echo $proyecto['nombre']  ?> </td>
-            <td><?php echo $proyecto['imagen']  ?></td>
-            <td><?php echo $proyecto['descripcion']  ?></td>
-            <td><a type="button" class="btn btn-danger" href="#" ">Eliminar</a></td>
+            <td ><?php echo $proyecto['id'];  ?></td>
+            <td><?php echo $proyecto['nombre'];  ?> </td>
+            <td><?php echo $proyecto['imagen']; ?></td>
+            <td><?php echo $proyecto['descripcion'];  ?></td>
+            <td><a type="button" class="btn btn-danger" href="?borrar=<?php echo $proyecto ['id']; ?>">Eliminar</a></td>
 
 
 
