@@ -13,6 +13,12 @@
     $sql="INSERT INTO proyectos (id, nombre, imagen, descripcion) VALUES (NULL, '$nombre', 'imagen.jpg', 'es un proyecto de hace mucho tiempo');";
     $objConexion->ejecutar($sql);   
     }
+
+    $objConexion=new conexion();
+    $resultado=$objConexion->consultar("SELECT * FROM PROYECTOS");
+
+    PRINT_R($resultado);
+
 ?>
     <br/>
 
