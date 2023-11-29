@@ -5,7 +5,7 @@
 
     if($_POST){
 
-        print_r($_POST);
+        
         
         $nombre=$_POST['nombre'];
         $descripcion=$_POST['descripcion'];
@@ -20,6 +20,7 @@
         $objConexion=new conexion();
         $sql="INSERT INTO proyectos (id, nombre, imagen, descripcion) VALUES (NULL, '$nombre', '$imagen', '$descripcion');";
         $objConexion->ejecutar($sql);   
+        header("location:galeria.php");
     }
 
     if($_GET) {
@@ -36,6 +37,7 @@
         
        $sql="DELETE FROM PROYECTOS WHERE PROYECTOS.ID =".$id;
         $objConexion->ejecutar($sql);
+        header("location:galeria.php");
     }
 
     $objConexion=new conexion();
@@ -57,14 +59,14 @@
         <div class="card-body">
         <form action="galeria.php" method="post" enctype="multipart/form-data">
 
-            Nombre del proyecto: <input class="form-control" type="text" name="nombre" id="">
+            Nombre del proyecto: <input required class="form-control" type="text" name="nombre" id="">
             <br/>
-            Imagen del proyecto: <input class="form-control" type="file" name="archivo" id="">
+            Imagen del proyecto: <input required class="form-control" type="file" name="archivo" id="">
             <br/>
             <div class="mb-3">
             <br/>
             Descripción:
-            <textarea class="form-control" name="descripcion" id="" rows="3"></textarea>
+            <textarea required class="form-control" name="descripcion" id="" rows="3"></textarea>
             </div>
 
 
