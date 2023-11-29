@@ -24,11 +24,17 @@
 
     if($_GET) {
 
-        //"DELETE FROM proyectos WHERE `proyectos`.`id` = 7";
+       
 
         $id=$_GET['borrar'];
         $objConexion=new conexion();
-        $sql="DELETE FROM PROYECTOS WHERE PROYECTOS.ID =".$id;
+
+        $imagen=$objConexion->consultar("select imagen from proyectos where id=".$id);
+
+        unlink("img/".$imagen[0]['imagen']);
+
+        
+       $sql="DELETE FROM PROYECTOS WHERE PROYECTOS.ID =".$id;
         $objConexion->ejecutar($sql);
     }
 
@@ -36,7 +42,6 @@
     $proyectos=$objConexion->consultar("SELECT * FROM PROYECTOS");
 
 
-    //print_r($resultado);
 
 ?>
     <br/>
