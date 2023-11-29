@@ -1,9 +1,9 @@
 <?php
 
     session_start();
-    if(isset($_SESSION['usuario'])!="develoteca" ){ 
+    /*if(isset($_SESSION['usuario'])!="develoteca" ){ 
         header("location:login.php");
-    }
+    }*/
 
 ?>
 
