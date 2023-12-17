@@ -9,7 +9,7 @@
 
         public function __construct(){
             try{
-                $this->conexion= new PDO("mysql:host=$this->servidor;dbname=album",$this->usuario,$this->password);
+                $this->conexion= new PDO("mysql:host=$this->servidor;dbname=portfolio",$this->usuario,$this->password);
                 $this->conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             }
             catch(PDOException $e ){

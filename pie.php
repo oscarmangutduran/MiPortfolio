@@ -21,9 +21,7 @@
         </ul>
     </nav>
 
-    <footer>
-        <p>&copy; 2023 Mi Página</p>
-    </footer>
+   
 
 </body>
 </html>

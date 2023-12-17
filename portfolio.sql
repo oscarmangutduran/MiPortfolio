@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2023 a las 20:12:54
+-- Tiempo de generación: 17-12-2023 a las 15:04:48
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `album`
+-- Base de datos: `portfolio`
 --
 
 -- --------------------------------------------------------
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `proyectos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(500) NOT NULL,
-  `imagen` varchar(255) NOT NULL,
-  `descripción` int(11) NOT NULL
+  `imagen` varchar(500) NOT NULL,
+  `descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
